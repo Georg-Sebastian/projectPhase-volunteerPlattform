@@ -8,3 +8,5 @@
 - As a volunteer, Marie can find volunteer oppotunities in her neighbourhood quickly and easily.
 - As an organization, Caritas posts volunteer opportunities for activities they need support with.
 - As an individual, Mr. Wolrf creates volunteer opportunities for small activities he accasionally needs help with.
+
+User Stories: https://github.com/Georg-Sebastian/projectPhase-volunteerPlattform/blob/master/volunteerPlattform_userStories.pdf
