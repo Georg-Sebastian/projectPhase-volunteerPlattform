@@ -1,0 +1,106 @@
+server:
+  port: 9000
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost/volunteerplatform
+      auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: scrumbledore.email@gmail.com
+    password: Scrumb!3dore
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+
+platformuser:
+  roles:
+    - ROLE_VOLUNTEER
+    - ROLE_ORGANIZATION
+    - ROLE_INDIVIDUAL
+    - ROLE_ADMIN
+
+apptree:
+  actions:
+    - |       # ROLE_VOLUNTEER
+        *Profile
+          Edit profile
+          View my profile as seen by others
+
+        *Search
+          Search for organizations/individuals
+          Find all activities
+          Search and filter activities based on a text/criteria search
+
+        *My activities
+          Accept or deny invites
+          Apply for activity
+          Complete activity and rate creator
+          Withdraw application
+
+        *Notifications
+          List all notifications
+          Register for email-notfications
+          Register with keyword for activity opportunities
+          List all keywords
+
+    - |       # ROLE_ORGANIZATION
+        *Profile
+          Edit profile
+          View my profile as seen by others
+
+        *Search
+          Search for volunteers
+          Find all volunteers
+          Search and filter volunteers based on a text/criteria search
+
+        *My activities
+          Create activity
+          Get own activities
+          Get own drafts
+          Edit own draft
+          Post own draft
+          Send invite to volunteer
+          Accept or deny applications
+          Complete activity and rate participants
+          Delete drafts and activities with no participants
+          Change posted activities with no participants to draft status
+
+        *Notifications
+          List all notifications
+          Register for email-notfications
+    - |       # ROLE_INDIVIDUAL
+        *Profile
+          Edit profile
+          View my profile as seen by others
+
+        *Search
+          Search for volunteers
+          Find all volunteers
+          Find volunteers based on a text/criteria search
+
+        *My activities
+          Create activity
+          Get own activities
+          Get own drafts
+          Edit own draft
+          Post own draft
+          Send invite to volunteer
+          Accept or deny applications
+          Complete activity and rate participants
+          Delete drafts and activities with no participants
+          Change posted activities with no participants to draft status
+
+        *Notifications
+          List all notifications
+          Register for email-notfications
+scheduling:
+  deleteresettoken: 0 0 0 ? * *
+  senddaily: 0/30 * * ? * *
+  sendweekly: 0 55 23 ? * SUN
+  sendmonthly: 0 50 23 1 * ?

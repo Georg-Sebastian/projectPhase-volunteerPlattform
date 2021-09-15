@@ -1,0 +1,45 @@
+###
+// invite volunteer1
+PUT http://localhost:9000/activity/2c27d9c2-0137-45ee-8ea1-d279c1447f4c/invite/Volunteer1
+Authorization: Basic Individual1 individual
+
+###
+// accept invitation
+PUT http://localhost:9000/activity/2c27d9c2-0137-45ee-8ea1-d279c1447f4c/accept
+Authorization: Basic Volunteer1 volunteer
+
+###
+// complete activity as creator
+PUT http://localhost:9000/activity/2c27d9c2-0137-45ee-8ea1-d279c1447f4c/complete
+Authorization: Basic Individual1 individual
+Content-Type: application/json
+
+[
+  {
+    "username" : "Volunteer1",
+    "rating" : 4,
+    "feedback" : "awesome!"
+  }
+]
+
+###
+// complete activity as participant
+PUT http://localhost:9000/activity/2c27d9c2-0137-45ee-8ea1-d279c1447f4c/close
+Authorization: Basic Volunteer1 volunteer
+Content-Type: application/json
+
+{
+  "username" : "Individual1",
+  "rating" : 3,
+  "feedback" : "quiet ok"
+}
+
+### (show filter after activity completion)
+// search for cook as Individual
+GET http://localhost:9000/search/volunteers/cook?filterRating=3
+Authorization: Basic Individual1 individual
+
+### (show filter after activity completion)
+// search for cook as Organization no result
+GET http://localhost:9000/search/volunteers/cook?filterRating=5
+Authorization: Basic Organization1 organization
